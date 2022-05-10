@@ -5,7 +5,7 @@ from app.models import User, Post, Comment
 
 class PitchTest(unittest.TestCase):
     def setUp(self):
-        self.new_user = User(username='cate', email='chepceline25@gmail.com', password='C')
+        self.new_user = User(username='chepceline', email='chepceline25@gmail.com', password='Chepchirchir')
         self.new_post = Post()
         self.new_comment = Comment()
 
