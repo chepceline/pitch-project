@@ -16,6 +16,7 @@ login_manager.login_view = 'auth.login'
 login_manager.session_protection = 'strong'
 
 
+
 def create_app(config_name):
     app.config.from_object(config_options[config_name])
     from .auth import auth as auth_blueprint
