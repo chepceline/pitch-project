@@ -1,5 +1,5 @@
-export MAIL_USERNAME='ccayreen24@gmail.com'
-export MAIL_PASSWORD='huhahuha'
-export SECRET_KEY='secret'
-# SQLALCHEMY_DATABASE_URI='DATABASE_URL'
+export SECRET_KEY = 'aa;ag8CFuGqen;YpA}}-G%64C}ggiN'
+export MAIL_USERNAME='chepceline25@gmail.com'
+export MAIL_PASSWORD='Chepchirchir'
+
 python3.8 manage.py server
