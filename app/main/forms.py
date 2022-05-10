@@ -1,18 +1,18 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, TextAreaField, SubmitField
-from wtforms.validators import Required
+from wtforms.validators import DataRequired
 
 
 class PostForm(FlaskForm):
-    title = StringField('Title', validators=[Required()])
-    post = TextAreaField('Pitch', validators=[Required()])
+    title = StringField('Title', validators=[DataRequired()])
+    post = TextAreaField('Pitch', validators=[DataRequired()])
     category = SelectField('Category', choices=[('PRODUCT', 'PRODUCT'), ('IDEA', 'IDEA'), ('Business', 'Business')],
-                           validators=[Required()])
+                           validators=[DataRequired()])
     submit = SubmitField('Post')
 
 
 class CommentForm(FlaskForm):
-    comment = TextAreaField('Comment', validators=[Required()])
+    comment = TextAreaField('Comment', validators=[DataRequired()])
     submit = SubmitField('Post')
 
 
@@ -21,5 +21,5 @@ class Vote(FlaskForm):
 
 
 class UpdateProfile(FlaskForm):
-    bio = TextAreaField('bio', validators=[Required()])
+    bio = TextAreaField('bio', validators=[DataRequired()])
     submit = SubmitField('Post')
