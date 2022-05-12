@@ -3,10 +3,12 @@ import os
 
 
 
+
+
 class Config:
     debug = True
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://celine:cel250@localhost/celine'
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://celine:cel250@localhost/pitches'
 
     #  email configurations
     MAIL_SERVER = 'smtp.gmail.com'
@@ -24,7 +26,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI")
    
 class TestConfig(Config):
     '''
@@ -32,7 +34,7 @@ class TestConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://celine:cel250@localhost/celine'
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://celine:cel250@localhost/pitches'
 
 
 class DevConfig(Config):
@@ -42,7 +44,8 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://celine:cel250@localhost/celine'
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://celine:cel250@localhost/pitches'
+     
 
 
 

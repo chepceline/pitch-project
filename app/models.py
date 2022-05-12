@@ -14,7 +14,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
-
+    posts = db.relationship('Post',backref='post',lazy='dynamic')
     def save(self):
         db.session.add(self)
         db.session.commit()
@@ -125,7 +125,7 @@ class Downvote(db.Model):
     def save(self):
         db.session.add(self)
         db.session.commit()
-
+ 
     def downvote(cls, id):
         downvote_post = Downvote(user=current_user, post_id=id)
         downvote_post.save()
