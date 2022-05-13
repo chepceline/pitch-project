@@ -4,7 +4,7 @@ from .forms import LoginForm,RegistrationForm,ValidForm
 from ..models import User,Coments
 from .. import db
 from . import auth
-from ..email import mail_message
+from ..email import Message
 
 @auth.route('/register',methods = ["GET","POST"])
 def register():
@@ -14,7 +14,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        mail_message('Welcome to Pitch','email/welcome_user',user.email,user=user)
+        Message('Welcome to Pitch','email/welcome_user',user.email,user=user)
         return redirect(url_for('auth.verify'))
         # title = "New Account"
     return render_template('auth/register.html',registration_form = form)
