@@ -8,20 +8,17 @@ class Config:
     MAIL_USE_TLS =True
     MAIL_USERNAME=os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD')
-    
-    @staticmethod
-    def init_app(app):
-        pass
+    SQLALCHEMY_DATABASE_URI=os.environ.get('SQLALCHEMY_DATABASE_URI')
+
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URI')
+    
 
     pass
 
 class DevConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://celine:cel250@localhost/flask_db'
-    SECRET_KEY ='aa;ag8CFuGqen;YpA}}-G%64C}ggiN'
+    
 
 config_options= {
     'development':DevConfig,
