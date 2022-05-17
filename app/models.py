@@ -8,10 +8,12 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key=True)
     username = db.Column(db.String(255),index = True)
     email= db.Column(db.String(255),unique = True, index = True)
-    pass_secure = db.Column(db.String(100))
+    password_secure= db.Column(db.String(255))
     pitches=db.relationship('Pitches',backref='user',lazy='dynamic')
     profile_pic_path= db.Column(db.String())
-    code = db.Column(db.Integer)
+    
+    
+    
 
     @property
     def password(self):
@@ -30,6 +32,11 @@ class Pitches(db.Model):
     title=db.Column(db.String(250))
     description=db.Column(db.String(250))
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
     
 
 

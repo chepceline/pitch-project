@@ -7,11 +7,11 @@ from ..models import User,Pitches,Coments
 
 @main.route('/')
 def index():
-  user = User.query.filter_by(username='uname').first()
+  
   pitches = Pitches.query.all()
   title = 'Welcome to pitch'
   message = 'Cool pitches'
-  return render_template('index.html',message = message,title= title,pitches = pitches, user=user)
+  return render_template('index.html',message = message,title= title,pitches = pitches)
 
 @main.route('/user/<uname>',methods=['GET','POST'])
 @login_required

@@ -1,7 +1,8 @@
 import os
 class Config:
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://celine:cel250@localhost/pitches'
+    
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER ='smtp.googlemail.com'
     MAIL_PORT =587
     MAIL_USE_TLS =True
@@ -13,11 +14,14 @@ class Config:
         pass
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URI')
+
     pass
 
 class DevConfig(Config):
     DEBUG = True
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://celine:cel250@localhost/flask_db'
+    SECRET_KEY ='aa;ag8CFuGqen;YpA}}-G%64C}ggiN'
 
 config_options= {
     'development':DevConfig,
