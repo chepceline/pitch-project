@@ -1,4 +1,4 @@
-Hello {{user.username}}.
+Hello {{user.username}}
 We are glad that you have signed up.
 It is our pleasure to welcome you to the Pitch family.
 Enter this code 505050 to complete registration. If this wasn't you kindly ignore the message.

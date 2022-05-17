@@ -14,21 +14,21 @@ def register():
         db.session.add(user)
         db.session.commit()
     
-        Message('Welcome to Pitch','email/welcome_user',user.email,user=user)
-        return redirect(url_for('auth.verify'))
-        # title = "New Account"
+        #Message('Welcome to Pitch','email/welcome_user',user.email,user=user)
+        return redirect(url_for('auth.login'))
+        #title = "New Account"
     return render_template('auth/register.html',registration_form = form)
 
-@auth.route('/verify',methods=['GET','POST'])
-def verify():
-    v_form = ValidForm()
-    if v_form.validate_on_submit():
-        v_code = User.query.filter_by(code = v_form.code.data).first()
-        if v_code is not None and v_form.code.data:
-            return redirect(request.args.get('next') or url_for('auth.login'))
-        flash('Wrong code')
-    title = 'Account verification'
-    return render_template('auth/verify.html', v_form = v_form,title = title)
+#@auth.route('/verify',methods=['GET','POST'])
+#def verify():
+    #v_form = ValidForm()
+    #if v_form.validate_on_submit():
+        #v_code = User.query.filter_by(code = v_form.code.data).first()
+        #if v_code is not None and v_form.code.data:
+            #return redirect(request.args.get('next') or url_for('auth.login'))
+        #flash('Wrong code')
+    #title = 'Account verification'
+    #return render_template('auth/login.html', v_form = v_form,title = title)
 
 
 @auth.route('/login',methods=['GET','POST'])
@@ -36,7 +36,7 @@ def login():
     login_form =LoginForm()
     if login_form.validate_on_submit():
         user = User.query.filter_by(username = login_form.username.data).first()
-        if user is not None and user.verify_password(login_form.password.data):
+        if user is not None and user.password_secure(login_form.password.data):
             login_user(user,login_form.remember.data)
             return redirect(request.args.get('next') or url_for('main.index'))
         flash('Invalid username or password')
