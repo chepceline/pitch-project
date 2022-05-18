@@ -2,7 +2,7 @@
 
 
 ## Author
-
+Damaris Chepchirchir
 
 
 ### Date of Release
@@ -22,7 +22,7 @@ Pitches is an app for pitching different ideas and let others comment and review
 
 Please run the following command on your terminal on linux to clone our project:
 
-git clone
+git clone from https://github.com/chepceline/pitch-project.git
 After the operation you will now be able to run the application locally on your computer.
 
 ------------------------------------------------------------------------
@@ -38,6 +38,7 @@ After the operation you will now be able to run the application locally on your 
 
 + [X] Python3.8
 
+python
 ------------------------------------------------------------------------
 
 ## Contributing
