@@ -1,7 +1,7 @@
 import os
 class Config:
     
-    SECRET_KEY =os.ennviron.get('SECRET KEY')
+    SECRET_KEY= os.environ.get('SECRET KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER ='smtp.googlemail.com'
     MAIL_PORT =587
