@@ -1,7 +1,7 @@
 import os
 class Config:
     
-    SECRET_KEY='aa;ag8CFuGqen;YpA}}-G%64C}ggiN'
+    SECRET_KEY=os.environ.get('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER ='smtp.googlemail.com'
     MAIL_PORT =587
@@ -13,12 +13,10 @@ class Config:
 
 class ProdConfig(Config):
     
-    uri = os.getenv('DATABASE_URL')
-    if uri and uri.startswith('postgres://'):
-        uri = uri.replace('postgres://', 'postgresql://', 1)
-    SQLALCHEMY_DATABASE_URI = uri
+    pass
+
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://damaris:1234@localhost/power'
+   
     DEBUG = True
     
 
